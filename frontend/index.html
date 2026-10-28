@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Students Attendance Tracker">
+  <title>Students Attendance Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Students Attendance Tracker home"><span class="brand-mark">AT</span><span>Attend<span class="brand-light">ance</span><small>STUDENT TRACKER</small></span></a>
+    <div class="top-actions"><span id="user-label" class="user-label"></span><button id="logout-btn" class="btn btn-quiet hidden">Log out</button></div>
+  </header>
+  <main class="shell">
+    <section id="login-view" class="login-layout">
+      <div class="welcome-panel">
+        <span class="eyebrow">SIMPLE · CLEAR · ACCOUNTABLE</span>
+        <h1>Every class.<br><span>Every student.</span><br>One clear view.</h1>
+        <p>Record attendance, understand trends, and help every student stay on track.</p>
+        <div class="welcome-stats"><div><strong>01</strong><span>Mark attendance</span></div><div><strong>02</strong><span>Review progress</span></div><div><strong>03</strong><span>Take action</span></div></div>
+      </div>
+      <div class="login-card">
+        <span class="eyebrow">WELCOME BACK</span><h2>Sign in to your account</h2><p class="muted">Use the account created by your administrator.</p>
+        <form id="login-form">
+          <label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="username" placeholder="you@college.edu" required>
+          <label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required minlength="8">
+          <button class="btn btn-primary btn-full" type="submit">Sign in <span aria-hidden="true">→</span></button>
+        </form>
+        <p class="login-note">Accounts are created by an administrator. Public self-registration is disabled.</p>
+      </div>
+    </section>
+    <section id="app-view" class="hidden">
+      <div class="page-heading"><div><span class="eyebrow" id="role-eyebrow">YOUR WORKSPACE</span><h1 id="page-title">Dashboard</h1><p id="page-subtitle" class="muted">A clear picture of attendance.</p></div><div id="heading-actions"></div></div>
+      <div id="notice" class="notice hidden" role="status" aria-live="polite"></div>
+      <div id="dashboard-content"></div>
+    </section>
+    <div id="global-notice" class="notice hidden" role="status" aria-live="polite"></div>
+  </main>
+  <footer><span>Students Attendance Tracker</span><span>Built with HTML · CSS · JavaScript · Express · Supabase</span></footer>
+
+  <dialog id="modal">
+    <form id="modal-form" method="dialog">
+      <div class="modal-heading"><div><span class="eyebrow" id="modal-eyebrow">MANAGE RECORD</span><h2 id="modal-title">Add record</h2></div><button type="button" class="icon-btn" id="modal-close" aria-label="Close dialog">×</button></div>
+      <div id="modal-fields" class="form-grid"></div>
+      <div id="modal-error" class="form-error hidden"></div>
+      <div class="modal-actions"><button type="button" class="btn btn-quiet" id="modal-cancel">Cancel</button><button type="submit" class="btn btn-primary" id="modal-save">Save record</button></div>
+    </form>
+  </dialog>
+</body>
+</html>
